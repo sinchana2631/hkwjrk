@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include<math.h>
+
+void tower(int n, int source, int temp, int destination)
+{
+    if (n==0)
+    return;
+    tower(n-1, source, destination, temp);
+    printf("\n Move disc %d from %c to %c", n, source, destination);
+    tower(n-1, temp, source, destination);
+}
+void main()
+{
+    int n;
+    printf("\n Enter the number of discs: \n");
+    scanf("%d",&n);
+    tower(n, 'A', 'B', 'C');
+    printf("\n\nTotal Number of moves are: %d", (int)pow(2,n)-1);
+}
+
+
+OUTPUT:
+
+Enter the number of discs: 3
+
+Move disc 1 from A to C
+Move disc 2 from A to B
+Move disc 1 from C to B
+Move disc 3 from A to C
+Move disc 1 from B to A
+Move disc 2 from B to C
+Move disc 1 from A to C
+
+Total Number of moves are: 7
